@@ -1,6 +1,7 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 import { contactsData } from "../Data";
+import { ContactsContainer } from "./style";
 type ContactInfo = {
   id: number;
   name: string;
@@ -8,9 +9,9 @@ type ContactInfo = {
   phoneNumber: string;
   friends: number[];
 };
-const Contacts = () => {
+const Contacts: FunctionComponent = () => {
   return (
-    <div>
+    <ContactsContainer>
       <table>
         <thead>
           <tr>
@@ -23,12 +24,12 @@ const Contacts = () => {
             return (
               <tr key={user.id}>
                 <td>
-                  <Link to={`/contacts/${user.id}`} state={user}>
+                  <Link className="Link" to={`/${user.id}`} state={user}>
                     {user.name} {user.surName}
                   </Link>
                 </td>
                 <td>
-                  <Link to={`/contacts/${user.id}`} state={user}>
+                  <Link className="Link" to={`/${user.id}`} state={user}>
                     {user.phoneNumber}
                   </Link>
                 </td>
@@ -37,7 +38,7 @@ const Contacts = () => {
           })}
         </tbody>
       </table>
-    </div>
+    </ContactsContainer>
   );
 };
 

@@ -1,17 +1,16 @@
-import { Link } from "react-router-dom";
-import { styled } from "styled-components";
+import { Link, useNavigate } from "react-router-dom";
 import React from "react";
+import { NavigationContainer } from "./style";
 
-const NavigationContainer = styled.nav`
-  background-color: tan;
-  padding: 30px;
-`;
-interface Navigation {}
-const Navigation: React.FunctionComponent<Navigation> = () => {
+const Navigation: React.FunctionComponent = () => {
+  const navigate = useNavigate();
   return (
     <NavigationContainer>
       <nav>
-        <Link to="/contacts">Contacts</Link>
+        <Link className="Link" to="/">
+          Contacts
+        </Link>
+        <button onClick={() => navigate(-1)}>Go back</button>
       </nav>
     </NavigationContainer>
   );
